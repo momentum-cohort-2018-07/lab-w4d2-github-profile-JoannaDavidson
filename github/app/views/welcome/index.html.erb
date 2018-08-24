@@ -1,10 +1,4 @@
-<h1>GitHub Profile Repos Recreation</h1>
-
-<dl>
 <% @response = HTTParty.get('https://api.github.com/users/JoannaDavidson') %>
-<%# @response["url"]  %>
 <% @response.each do |ghapi| %>
-<dt> <%= ghapi[0] %> </dt>
-<dd> <%= ghapi[1] %> </dd>
+<%=   content_tag :div, "#{ghapi[1]}", class: "#{ghapi[0]}" -%>
 <% end %>
-</dl>
