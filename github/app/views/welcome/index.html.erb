@@ -1,10 +1,14 @@
 <% @response = HTTParty.get('https://api.github.com/users/JoannaDavidson') %>
-<% @response.each do |ghapi| %>
-<%=   content_tag :div, if ghapi[0] === "avatar_url"
+<% @reporesponse = HTTParty.get('https://api.github.com/users/JoannaDavidson/repos') %>
+<%  %>
+<%# @response.each do |ghapi| %>
+<%#   content_tag :div, if ghapi[0] === "avatar_url"
         image_tag "#{ghapi[1]}", alt: 'Woman in yellow shirt and large yellow sun hat'
-      elsif ghapi[0] === "repos_url"
-        @reporesponse = HTTParty.get('https://api.github.com/users/JoannaDavidson/repos')
-      else
+     else
       "#{ghapi[1]}" 
       end , class: "#{ghapi[0]}" -%>
-<% end %>
+<%# end %>
+
+<%#      elsif ghapi[0] === "repos_url"
+        @reporesponse = HTTParty.get('https://api.github.com/users/JoannaDavidson/repos')
+ %>
